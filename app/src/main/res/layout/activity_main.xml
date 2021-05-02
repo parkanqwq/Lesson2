@@ -14,8 +14,9 @@
 
         <ImageView
             android:id="@+id/imageView"
-            android:layout_width="760dp"
-            android:layout_height="760dp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="center"
             app:srcCompat="@drawable/imageandroid" />
     </LinearLayout>
 
@@ -27,16 +28,27 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="3"
+            android:layout_weight="2"
             android:gravity="center|right"
             android:orientation="vertical"
             android:padding="8dp">
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/textAct"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:inputType="textShortMessage"
+                android:textAlignment="textEnd"
+                android:textAllCaps="false"
+                android:textColor="#070707"
+                android:textSize="40sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textResult"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="0"
+                android:layout_marginTop="16dp"
                 android:textSize="30sp"
                 android:textStyle="bold" />
         </LinearLayout>
@@ -54,55 +66,56 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/mc"
+                    android:id="@+id/btnC"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:text="mc"
-                    android:textColor="#657071"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/butto9808n22"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="btnC"
                     android:text="C"
                     android:textColor="#3949AB"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button23"
+                    android:id="@+id/btn7"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="7"
                     android:textColor="#020202"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button24"
+                    android:id="@+id/btn4"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:text="6"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
+                    android:text="4"
                     android:textColor="#020202"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button25"
+                    android:id="@+id/btn1"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:text="3"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
+                    android:text="1"
                     android:textColor="#020202"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button26"
+                    android:id="@+id/btnPerecent"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="%"
                     android:textColor="#FFFFFF"
                     android:textSize="24sp" />
@@ -115,56 +128,58 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/butt464on2777"
+                    android:id="@+id/btnShare"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:text="m+"
-                    android:textColor="#657071"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/button22"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="/"
                     android:textColor="#3949AB"
                     android:textSize="24sp" />
 
                 <Button
+                    android:id="@+id/btn8"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="8"
                     android:textColor="#020202"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/butto768n24"
+                    android:id="@+id/btn5"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="5"
                     android:textColor="#020202"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/bu867tton25"
+                    android:id="@+id/btn2"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="2"
                     android:textColor="#020202"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button6526"
+                    android:id="@+id/btn0"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="0"
-                    android:textColor="#020202"
+                    android:textColor="#FFFFFF"
                     android:textSize="24sp" />
 
             </LinearLayout>
@@ -176,55 +191,56 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/but543ton2"
+                    android:id="@+id/btnMultiply"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:text="m-"
-                    android:textColor="#657071"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/bu12tton22"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="X"
                     android:textColor="#3949AB"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/but543ton23"
+                    android:id="@+id/btn9"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="9"
                     android:textColor="#020202"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/bu43tton24"
+                    android:id="@+id/btn6"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:text="4"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
+                    android:text="6"
                     android:textColor="#020202"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/butt23on25"
+                    android:id="@+id/btn3"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:text="1"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
+                    android:text="3"
                     android:textColor="#020202"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button23426"
+                    android:id="@+id/btnPoint"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text=","
                     android:textColor="#FFFFFF"
                     android:textSize="24sp" />
@@ -238,46 +254,43 @@
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/button232"
+                    android:id="@+id/btnDelente"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
-                    android:text="mr"
-                    android:textColor="#657071"
-                    android:textSize="24sp" />
-
-                <Button
-                    android:id="@+id/button2553"
-                    style="@style/Widget.AppCompat.Button.Borderless"
-                    android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
                     android:text="del"
                     android:textColor="#3949AB"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/but2553"
+                    android:id="@+id/btnMin"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="-"
                     android:textColor="#3949AB"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button244"
+                    android:id="@+id/btnPlas"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="80dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:onClick="metNumbers"
                     android:text="+"
                     android:textColor="#3949AB"
                     android:textSize="24sp" />
 
                 <Button
-                    android:id="@+id/button253"
+                    android:id="@+id/btnEqually"
                     style="@style/Widget.AppCompat.Button.Borderless"
                     android:layout_width="match_parent"
-                    android:layout_height="160dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="2"
                     android:text="="
                     android:textColor="#FFFFFF"
                     android:textSize="24sp" />
