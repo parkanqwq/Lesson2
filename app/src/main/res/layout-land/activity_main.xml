@@ -29,7 +29,8 @@
             <TextView
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:gravity="center"
                 android:text="тут будут доп кнопки и тд - еще не придумал"
                 android:textColor="#000000"
                 android:textSize="24sp" />
@@ -335,4 +336,20 @@
         </LinearLayout>
 
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/themeBlack"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="8dp"
+        android:visibility="visible"
+        app:srcCompat="@drawable/ic_theme_black" />
+
+    <ImageView
+        android:id="@+id/themeWhile"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:padding="8dp"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_theme_while" />
 </RelativeLayout>
