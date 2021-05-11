@@ -1,7 +1,10 @@
 package com.kalabukhov.lesson2;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -43,8 +46,6 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String APP_THEME = "APP_THEME";
     private static final String NAME_THEME = "THEME";
-    private static final int WHILE_THEME = 0;
-    private static final int BLACK_THEME = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -66,22 +67,6 @@ public class MainActivity extends AppCompatActivity {
             setAppTheme(R.style.Theme_AppCompat);
             imageView.setVisibility(View.GONE);
         } else imageView.setVisibility(View.VISIBLE);
-
-        themeBlack.setOnClickListener(view -> {
-            themeBlack.setVisibility(View.GONE);
-            themeWhile.setVisibility(View.VISIBLE);
-            setTheme(R.style.Theme_AppCompat);
-            setAppTheme(R.style.Theme_AppCompat);
-            recreate();
-        });
-
-        themeWhile.setOnClickListener(view -> {
-            themeWhile.setVisibility(View.GONE);
-            themeBlack.setVisibility(View.VISIBLE);
-            setTheme(R.style.Theme_myTheme);
-            setAppTheme(R.style.Theme_myTheme);
-            recreate();
-        });
     }
 
     private int getAppTheme(int code){
@@ -96,6 +81,25 @@ public class MainActivity extends AppCompatActivity {
     private int getCodeStyle(int codeStyle) {
         SharedPreferences sharedPreferences = getSharedPreferences(NAME_THEME, MODE_PRIVATE);
         return sharedPreferences.getInt(APP_THEME, codeStyle);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_settings:
+                Intent intent = new Intent(MainActivity.this, Settings.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void createMap() {
@@ -275,5 +279,11 @@ public class MainActivity extends AppCompatActivity {
         resultNumber = saveFileMain.getResultNumber();
 
         mathMethodId = saveFileMain.getMathMethodId();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
     }
 }
