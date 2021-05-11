@@ -1,8 +1,13 @@
 package com.kalabukhov.lesson2;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
                 btn3, btn2, btn1, btnEqually,
                 btnPerecent, btn0, btnPoint;
 
+    private ImageView themeBlack, themeWhile, imageView;
+
     private TextView textResult, textAct;
     private Map<View, String> map;
     private String waitNamberOne;
@@ -37,14 +44,62 @@ public class MainActivity extends AppCompatActivity {
 
     private SaveFileMain saveFileMain;
 
+    private static final String APP_THEME = "APP_THEME";
+    private static final String NAME_THEME = "THEME";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setTheme(getAppTheme(R.style.Theme_myTheme));
         setContentView(R.layout.activity_main);
 
         initialization();
         createMap();
         btnMethod();
+        themeChange();
+    }
+
+    private void themeChange() {
+        if (getAppTheme(R.style.Theme_myTheme) != R.style.Theme_myTheme){
+            themeBlack.setVisibility(View.GONE);
+            themeWhile.setVisibility(View.VISIBLE);
+            setTheme(R.style.Theme_AppCompat);
+            setAppTheme(R.style.Theme_AppCompat);
+            imageView.setVisibility(View.GONE);
+        } else imageView.setVisibility(View.VISIBLE);
+    }
+
+    private int getAppTheme(int code){
+        return getCodeStyle(code);
+    }
+
+    private void setAppTheme(int code){
+        SharedPreferences sharedPreferences = getSharedPreferences(NAME_THEME, MODE_PRIVATE);
+        sharedPreferences.edit().putInt(APP_THEME, code).apply();
+    }
+
+    private int getCodeStyle(int codeStyle) {
+        SharedPreferences sharedPreferences = getSharedPreferences(NAME_THEME, MODE_PRIVATE);
+        return sharedPreferences.getInt(APP_THEME, codeStyle);
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        switch (id) {
+            case R.id.action_settings:
+                Intent intent = new Intent(MainActivity.this, Settings.class);
+                startActivity(intent);
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
     }
 
     public void createMap() {
@@ -175,6 +230,10 @@ public class MainActivity extends AppCompatActivity {
         btn1 = findViewById(R.id.btn1);
         btn0 = findViewById(R.id.btn0);
 
+        themeBlack = findViewById(R.id.themeBlack);
+        themeWhile = findViewById(R.id.themeWhile);
+        imageView = findViewById(R.id.imageView);
+
         waitNamberOne = "";
         waitNamberTwo = "";
         textAct.setText("");
@@ -220,5 +279,11 @@ public class MainActivity extends AppCompatActivity {
         resultNumber = saveFileMain.getResultNumber();
 
         mathMethodId = saveFileMain.getMathMethodId();
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        recreate();
     }
 }
